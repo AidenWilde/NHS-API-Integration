@@ -21,6 +21,12 @@ namespace Assignment2022_NCC.Pages
             _apiClient = new NHSApiClient();
         }
 
+        /*
+         * Method: OnPostSearch()
+         * Called when the input 'submit' with asp-page-handler 'Search' is pressed
+         * This method calls off to the NHS API to get all comments for an organisation by odsCode 
+         * the odsCode is bound to a property called 'SearchValue'
+         */
         public void OnPostSearch()
         {
             var apiResponse = _apiClient.GetRatingsAndReviews(new RatingsAndReviewsApiRequest
@@ -33,6 +39,12 @@ namespace Assignment2022_NCC.Pages
             ApiResponse = _cache.Read();
         }
 
+        /*
+         * Method: OnGet()
+         * Called when the page is loaded or refreshed
+         * This method calls off to the NHS API to get all comments for an organisation by a hard-coded odsCode 
+         * so that there are comments available to read immediately upon load
+         */
         public void OnGet()
         {
             if (_cache.HasValue() is false)

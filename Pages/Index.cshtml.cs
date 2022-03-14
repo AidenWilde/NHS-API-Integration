@@ -17,6 +17,12 @@ namespace Assignment2022_NCC.Pages
             _apiClient = new NHSApiClient();
         }
 
+        /*
+         * Method: OnGet()
+         * Called when the page is loaded or refreshed
+         * This method calls off to the NHS API to get all common health questions
+         * so that there is viewable content available to read immediately upon load
+         */
         public void OnGet()
         {
             if(_cache.HasValue() is false)

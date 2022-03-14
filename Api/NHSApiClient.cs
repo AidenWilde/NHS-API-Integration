@@ -57,6 +57,10 @@ namespace Assignment2022_NCC.Api
             }
         }
 
+        /*
+         * Method: BuildQueryParamtersString()
+         * Generates formatted query parameters for a Http GET request
+         */
         private string BuildQueryParamtersString(RatingsAndReviewsApiRequest request)
         {
             var queryParamters = HttpUtility.ParseQueryString(string.Empty);
@@ -69,6 +73,10 @@ namespace Assignment2022_NCC.Api
             return queryParamters.ToString();
         }
 
+        /*
+         * Method: HttpGetAsync<T>()
+         * Calls a [GET] HTTP resource to retrieve data and deserializes it into the supplied object T
+         */
         private T HttpGetAsync<T>(string url) where T : new()
         {
             T response = new T();
