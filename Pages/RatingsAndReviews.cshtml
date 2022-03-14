@@ -6,6 +6,20 @@
     .column {
         display: grid;
     }
+
+    .box-shadow-borderline {
+        border: solid;
+        margin: 0.5em;
+        padding: 20px;
+        box-shadow:
+            inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.0);
+    }
+
+    .margin-1 {
+        margin: 1em;
+    }
 </style>
 
 <div class="text-center">
@@ -13,6 +27,12 @@
 </div>
 
 <div class="column">
-    
+    @foreach(var comment in @Model.ApiResponse.comments)
+    {
+        <div class="box-shadow-borderline margin-1">
+            <a href="@comment.comment.commentOriginalURL"><p>@comment.comment.commentOriginalURL</p></a>
+            <p>@comment.comment.commentText</p>
+        </div>
+    }
 </div>
 }
