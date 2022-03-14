@@ -1,8 +1,15 @@
 ﻿using Assignment2022_NCC.Api.Types;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace Assignment2022_NCC.Api
 {
-    public class NHSApiClient
+    public interface INHSApiClient
+    {
+        public CommonHealthQuestionsApiResonse? GetCommonHealthQuestions();
+    }
+
+    public class NHSApiClient : INHSApiClient
     {
         private const string CommonHealthQuestionsApiBaseUrl = "https://api.nhs.uk/common-health-questions";
 
@@ -13,9 +20,27 @@ namespace Assignment2022_NCC.Api
             _httpClient = new HttpClient();
         }
 
-        public CommonHealthQuestionsApiResonse GetCommonHealthQuestions()
+        public CommonHealthQuestionsApiResonse? GetCommonHealthQuestions()
         {
-            return new();
+            var commonHealthQuestionsApiResponse = new CommonHealthQuestionsApiResonse();
+            _httpClient.DefaultRequestHeaders.Add("subscription-key", Settings.ApiKey);
+
+            try
+            {
+                var rawResponse = _httpClient.GetAsync(CommonHealthQuestionsApiBaseUrl)
+                    .ContinueWith((rawResponse) =>
+                    {
+                        var asyncString = rawResponse.Result.Content.ReadAsStringAsync();
+                        asyncString.Wait();
+                        commonHealthQuestionsApiResponse = JsonConvert.DeserializeObject<CommonHealthQuestionsApiResonse>(asyncString.Result);
+                    });
+                rawResponse.Wait();
+                return commonHealthQuestionsApiResponse;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
     }
 }

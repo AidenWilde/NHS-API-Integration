@@ -1,8 +1,11 @@
+using Assignment2022_NCC.Api;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IBasicCache, BasicCache>();
+builder.Services.AddScoped<INHSApiClient, NHSApiClient>();
 
 var app = builder.Build();
 

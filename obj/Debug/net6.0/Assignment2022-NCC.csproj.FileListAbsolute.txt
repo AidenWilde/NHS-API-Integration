@@ -24,3 +24,5 @@ C:\Users\Aiden\Desktop\Development\Assignment2022-NCC\Assignment2022-NCC\obj\Deb
 C:\Users\Aiden\Desktop\Development\Assignment2022-NCC\Assignment2022-NCC\obj\Debug\net6.0\ref\Assignment2022-NCC.dll
 C:\Users\Aiden\Desktop\Development\Assignment2022-NCC\Assignment2022-NCC\obj\Debug\net6.0\Assignment2022-NCC.pdb
 C:\Users\Aiden\Desktop\Development\Assignment2022-NCC\Assignment2022-NCC\obj\Debug\net6.0\Assignment2022-NCC.genruntimeconfig.cache
+C:\Users\Aiden\Desktop\Development\Assignment2022-NCC\Assignment2022-NCC\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Aiden\Desktop\Development\Assignment2022-NCC\Assignment2022-NCC\obj\Debug\net6.0\Assignment2022-NCC.csproj.CopyComplete
