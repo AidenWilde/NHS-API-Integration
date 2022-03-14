@@ -20,25 +20,34 @@
     .margin-1 {
         margin: 1em;
     }
+
+    .warning-message {
+        color: red;
+    }
 </style>
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Ratings and Reviews</h1>
     <form method="post", asp-page="RatingsAndReviews">
         <p>
-            Search for organisation: <input type="text" asp-for="SearchValue" />
+            Search for organisation (ods code): <input type="text" asp-for="SearchValue" />
             <input type="submit" value="Search" asp-page-handler="Search"/>
         </p>
     </form>
 </div>
 
 <div class="column">
-    @foreach(var comment in @Model.ApiResponse.comments)
-    {
-        <div class="box-shadow-borderline margin-1">
-            <a href="@comment.comment.commentOriginalURL"><p>@comment.comment.commentOriginalURL</p></a>
-            <p>@comment.comment.commentText</p>
-        </div>
-    }
+        @if(@Model.ApiResponse.comments.IsNullOrEmpty())
+        {
+            <p class="warning-message">No available comments for this organisation were found.</p>
+        }
+        
+        @foreach(var comment in @Model.ApiResponse.comments)
+        {
+            <div class="box-shadow-borderline margin-1">
+                <a href="@comment.comment.commentOriginalURL"><p>@comment.comment.commentOriginalURL</p></a>
+                <p>@comment.comment.commentText</p>
+            </div>
+        }
 </div>
 }
