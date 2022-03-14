@@ -5,6 +5,18 @@
 }
 
 <div class="text-center">
+    
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+        @foreach(var topic in @Model.ApiResponse.significantLink)
+        {
+            <div>
+                <a href="@topic.url"><p>@topic.name</p></a>
+                <p>@topic.description</p>
+            </div>
+        }
+
+    <div>
+        <img src="@Model.ApiResponse.author.logo" />
+    </div>
 </div>
