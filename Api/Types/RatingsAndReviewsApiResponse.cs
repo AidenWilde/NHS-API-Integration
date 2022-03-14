@@ -23,16 +23,21 @@
         public class Rating
         {
             public string question { get; set; }
-            public int rating { get; set; }
+            public string rating { get; set; }
         }
 
         public class Visit
         {
-            public int month { get; set; }
-            public int year { get; set; }
+            public string month { get; set; }
+            public string year { get; set; }
         }
 
-        public class Comment2
+        public class Comment
+        {
+            public comment comment { get; set; }
+        }
+
+        public class comment
         {
             public string commentId { get; set; }
             public string commentRef { get; set; }
@@ -41,9 +46,9 @@
             public string commentOriginalURL { get; set; }
             public string title { get; set; }
             public string commentText { get; set; }
-            public DateTime dateSubmitted { get; set; }
-            public DateTime lastUpdated { get; set; }
-            public int sentimentScore { get; set; }
+            public string dateSubmitted { get; set; }
+            public string lastUpdated { get; set; }
+            public string sentimentScore { get; set; }
             public string department { get; set; }
             public string publisherID { get; set; }
             public string publishersCommentRef { get; set; }
@@ -52,11 +57,6 @@
             public bool removeReportLink { get; set; }
             public List<Rating> ratings { get; set; }
             public Visit visit { get; set; }
-        }
-
-        public class Comment
-        {
-            public Comment comment { get; set; }
             public object response { get; set; }
         }
     }

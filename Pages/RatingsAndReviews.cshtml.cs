@@ -24,7 +24,7 @@ namespace Assignment2022_NCC.Pages
             {
                 var apiResponse = _apiClient.GetRatingsAndReviews(new RatingsAndReviewsApiRequest
                 {
-                    odsCode = ""
+                    odsCode = "RR8"
                 });
                 if (apiResponse is not null)
                     _cache.Update(apiResponse);
