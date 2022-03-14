@@ -1,4 +1,5 @@
 ﻿using Assignment2022_NCC.Api;
+using Assignment2022_NCC.Api.Types;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Assignment2022_NCC.Pages
@@ -8,6 +9,8 @@ namespace Assignment2022_NCC.Pages
         private static IBasicCache _cache;
         private static INHSApiClient _apiClient;
 
+        public CommonHealthQuestionsApiResonse? ApiResponse;
+
         static IndexModel()
         {
             _cache = new BasicCache();
@@ -16,7 +19,16 @@ namespace Assignment2022_NCC.Pages
 
         public void OnGet()
         {
-            var response = _apiClient.GetCommonHealthQuestions();
+            if(_cache.HasValue() is false)
+            {
+                var apiResponse = _apiClient.GetCommonHealthQuestions();
+                if (apiResponse is not null)
+                    _cache.Update(apiResponse);
+
+                ApiResponse = apiResponse;
+            }
+
+            ApiResponse = _cache.Read();
         }
     }
 }

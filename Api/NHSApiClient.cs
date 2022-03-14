@@ -1,6 +1,5 @@
 ﻿using Assignment2022_NCC.Api.Types;
 using Newtonsoft.Json;
-using System.Net.Http.Headers;
 
 namespace Assignment2022_NCC.Api
 {
