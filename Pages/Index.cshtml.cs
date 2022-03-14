@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Assignment2022_NCC.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private static IBasicCache _cache;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        static IndexModel()
         {
-            _logger = logger;
+            _cache = new BasicCache();
         }
 
         public void OnGet()
