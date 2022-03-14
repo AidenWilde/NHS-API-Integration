@@ -6,14 +6,14 @@ namespace Assignment2022_NCC.Pages
 {
     public class IndexModel : PageModel
     {
-        private static IBasicCache _cache;
+        private static IBasicCache<CommonHealthQuestionsApiResonse> _cache;
         private static INHSApiClient _apiClient;
 
         public CommonHealthQuestionsApiResonse? ApiResponse;
 
         static IndexModel()
         {
-            _cache = new BasicCache();
+            _cache = new BasicCache<CommonHealthQuestionsApiResonse>();
             _apiClient = new NHSApiClient();
         }
 

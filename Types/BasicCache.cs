@@ -1,28 +1,28 @@
 ﻿using Assignment2022_NCC.Api.Types;
 
-public interface IBasicCache
+public interface IBasicCache<T>
 {
-    void Update(CommonHealthQuestionsApiResonse response);
+    void Update(T response);
     bool HasValue();
-    CommonHealthQuestionsApiResonse? Read();
+    T? Read();
 }
 
-public class BasicCache : IBasicCache
+public class BasicCache<T> : IBasicCache<T> where T : class
 {
-    private CommonHealthQuestionsApiResonse? _commonHealthQuestionsApiResonse;
-
-    public void Update(CommonHealthQuestionsApiResonse response)
-    {
-        _commonHealthQuestionsApiResonse = response;
-    }
+    private T? _value;
 
     public bool HasValue()
     {
-        return _commonHealthQuestionsApiResonse != null;
+        return _value != null;
     }
 
-    public CommonHealthQuestionsApiResonse? Read()
+    public void Update(T response)
     {
-        return _commonHealthQuestionsApiResonse;
+        _value = response;
+    }
+
+    public T Read()
+    {
+        return _value;
     }
 }
