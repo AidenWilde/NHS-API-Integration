@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9BWz2//v9Yhx2ZSwtRbnZ4okTMRnNflqt534QEelzVsEI1f1+TfcBt1OnwjafRYZPOs1hyUuWGo7glmp3F3Vwg==",
+  "dgSpecHash": "SFcN9u5wRmvEyYp0JQj5+vrUPue0gKw6XLLTHQAhbZ866QSjKG/H8wIHcyBtqKHEEuDiBWx9YG7PzNdkaInejg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Aiden\\Desktop\\Development\\Assignment2022-NCC\\Assignment2022-NCC\\Assignment2022-NCC.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Aiden\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
