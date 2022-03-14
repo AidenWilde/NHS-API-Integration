@@ -24,8 +24,6 @@ namespace Assignment2022_NCC.Pages
                 var apiResponse = _apiClient.GetCommonHealthQuestions();
                 if (apiResponse is not null)
                     _cache.Update(apiResponse);
-
-                ApiResponse = apiResponse;
             }
 
             ApiResponse = _cache.Read();

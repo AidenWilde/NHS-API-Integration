@@ -4,19 +4,41 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+    .column {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
+
+    .box-shadow-borderline {
+        border: solid;
+        margin: 0.5em;
+        padding: 20px;
+        box-shadow:
+            inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.0);
+    }
+
+    .margin-1 {
+        margin: 1em;
+    }
+</style>
+
 <div class="text-center">
     
     <h1 class="display-4">Welcome</h1>
-
+    <div class="column">
         @foreach(var topic in @Model.ApiResponse.significantLink)
         {
-            <div>
+            <div class="box-shadow-borderline">
                 <a href="@topic.url"><p>@topic.name</p></a>
                 <p>@topic.description</p>
             </div>
         }
-
-    <div>
+    </div>
+    
+    <div class="margin-1">
         <img src="@Model.ApiResponse.author.logo" />
     </div>
 </div>
