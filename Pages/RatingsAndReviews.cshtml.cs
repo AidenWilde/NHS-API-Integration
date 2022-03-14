@@ -12,10 +12,25 @@ namespace Assignment2022_NCC.Pages
 
         public RatingsAndReviewsApiResponse? ApiResponse;
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchValue { get; set; }
+
         static RatingsAndReviewsModel()
         {
             _cache = new BasicCache<RatingsAndReviewsApiResponse>();
             _apiClient = new NHSApiClient();
+        }
+
+        public void OnPostSearch()
+        {
+            var apiResponse = _apiClient.GetRatingsAndReviews(new RatingsAndReviewsApiRequest
+            {
+                odsCode = SearchValue
+            });
+            if (apiResponse is not null)
+                _cache.Update(apiResponse);
+
+            ApiResponse = _cache.Read();
         }
 
         public void OnGet()

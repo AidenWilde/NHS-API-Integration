@@ -24,6 +24,12 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Ratings and Reviews</h1>
+    <form method="post", asp-page="RatingsAndReviews">
+        <p>
+            Search for organisation: <input type="text" asp-for="SearchValue" />
+            <input type="submit" value="Search" asp-page-handler="Search"/>
+        </p>
+    </form>
 </div>
 
 <div class="column">
