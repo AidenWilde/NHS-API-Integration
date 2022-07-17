@@ -1,4 +1,4 @@
-# Assignment2022-NCC
+# NHS-API-Integration
 
 Within the Settings.cs file (located Api/Types/Settings.cs) you will need to provide your own API key to be able to use this web application succesfully - otherwise you will get 404s or Unauthorized responses.
 
